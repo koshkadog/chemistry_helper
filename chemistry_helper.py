@@ -12,4 +12,6 @@ if __name__ == '__main__':
             functions.rxn_b()
         if event == '-Substance_B-':
             functions.subs()
+        if event == '-MASS_FRC-':
+            functions.mass_frc()
     window.close()

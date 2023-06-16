@@ -47,3 +47,29 @@ def subs():
             except Exception:
                 sg.popup('Введите корректные данные', title='Error')
                 pass
+
+
+def mass_frc():
+    window_fractions = windows.window_frc()
+    while True:
+        event_frc, mass = window_fractions.read()
+        if event_frc == sg.WIN_CLOSED:
+            break
+        if event_frc == '-fractions-':
+            try:
+                sub = mass['-MASS-'].split(';')
+                moles = []
+                comp = []
+                for i in sub:
+                    i = i.split(':')
+                    comp.append(i[0])
+                    moles.append(int(i[1]))
+                sub_dict = dict(zip(comp, moles))
+                mass_frac = cm.mass_fractions(sub_dict)
+                for i in range(len(mass_frac.keys())):
+                    window_fractions['-OUTPUT-'].update(
+                        window_fractions['-OUTPUT-'].get() + f'Доля {list(mass_frac.keys())[i]} = '
+                                                             f'{list(mass_frac.values())[i]: g} %\n')
+            except Exception:
+                sg.popup('Введите корректные данные', title='Error')
+                pass

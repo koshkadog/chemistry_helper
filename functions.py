@@ -69,7 +69,7 @@ def mass_frc():
                 for i in range(len(mass_frac.keys())):
                     window_fractions['-OUTPUT-'].update(
                         window_fractions['-OUTPUT-'].get() + f'Доля {list(mass_frac.keys())[i]} = '
-                                                             f'{list(mass_frac.values())[i]: g} %\n')
+                                                             f'{list(mass_frac.values())[i] * 100: g} %\n')
             except Exception:
                 sg.popup('Введите корректные данные', title='Error')
                 pass

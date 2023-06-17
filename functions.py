@@ -57,6 +57,7 @@ def mass_frc():
             break
         if event_frc == '-fractions-':
             try:
+                window_fractions['-OUTPUT-'].update('')
                 sub = mass['-MASS-'].split(';')
                 moles = []
                 comp = []
